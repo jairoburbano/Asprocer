@@ -1,0 +1,58 @@
+/*------------------------------------*\
+$ERROR
+\*------------------------------------*/
+.error404 {
+    .footer {
+        margin-top: 0;
+    }
+}
+.error-page {
+    width: 100%;
+    height: 100vh;
+    background-position: center center fixed;
+    background-size: cover;
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba($principal, .5);
+        z-index: $level1;
+    }
+}
+.error__container {
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: $level2;
+    width: 100%;
+    max-width: 480px;
+    margin: auto;
+    @include respond-to(tablet) {
+        padding-top: 100px;
+    }
+    .content {
+        margin-bottom: 30px;
+        p {
+            @include font-size(16px, 20px);
+            font-weight: 600;
+        }
+    }
+    .btn {
+        margin: auto;
+    }
+}
+.error__small {
+    @include font-size(28px, 34px);
+}
+.error__big {
+    @include font-size(140px, 100px);
+    margin-bottom: 20px;
+    @include respond-to(tablet) {
+        @include font-size(200px, 140px);
+    }
+}

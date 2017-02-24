@@ -1,0 +1,185 @@
+/*------------------------------------*\
+$SLIDER
+\*------------------------------------*/
+.slide--home {
+    width: 100%;
+    background: $main;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    @include respond-to(tablet) {
+        min-height: 600px;
+    }
+    @include respond-to(desktop) {
+        min-height: 430px;
+    }
+    &.inicio-slide {
+        overflow: hidden;
+        height: 400px;
+        @include respond-to(tablet) {
+            height: 600px;
+        }
+        @include respond-to(desktop) {
+            height: 430px;
+        }
+    }
+    .custom__icons {
+        //        @include respond-to(desktop) {
+        //            width: 100%;
+        //            margin: auto;
+        //            position: absolute;
+        //            bottom: 0;
+        //            left: 50%;
+        //            height: 34px;
+        //            transform: translate(-50%, 0);
+        //            z-index: $level2;
+        //        }
+    }
+    .flex-direction-nav {
+        display: none;
+        @include respond-to(tablet) {
+            display: block;
+        }
+    }
+    .flex-prev, .flex-next {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        left: 20px;
+        background: rgba(black, .2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+        border-radius: 50%;
+        z-index: $level4;
+        transition: all $time;
+        &:focus {
+            outline: 0;
+        }
+        .no-touch & {
+            &:hover {
+                background: rgba(black, .6);
+            }
+        }
+        svg {
+            width: 10px;
+            height: 18px;
+            fill: white;
+        }
+    }
+    .flex-next {
+        left: auto;
+        right: 20px;
+    }
+}
+.flex-control-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 25px;
+    background: rgba(white, .5);
+    top: 195px;
+    left: 0;
+    z-index: 600;
+    @include respond-to(tablet) {
+        height: 40px;
+        top: 470px;
+    }
+    @include respond-to(desktop) {
+        width: 50%;
+        left: auto;
+        top: auto;
+        bottom: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: 0;
+        background: rgba(white, .3);
+    }
+    li {
+        margin: 0 5px;
+        a {
+            display: block;
+            text-indent: 999em;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #0058a4;
+            transition: all $time;
+            &.flex-active {
+                width: 7px;
+                height: 7px;
+                background: $main;
+            }
+        }
+    }
+}
+.item__slide {
+    margin: auto;
+    width: 100%;
+    position: relative;
+    display: block;
+    @include respond-to(desktop) {
+        justify-content: space-between;
+        flex-flow: row wrap;
+        display: flex;
+    }
+}
+.item__slide__text {
+    padding: 20px;
+    @include respond-to(desktop) {
+        width: calc(100% - 630px;);
+    }
+    @include respond-to(desktop) {
+        padding: 70px 60px;
+        width: 50%;
+    }
+    .btn {
+        margin-top: 14px;
+    }
+}
+.item__slide__media {
+    width: 100%;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    @include respond-to(tablet) {
+        height: 510px;
+    }
+    @include respond-to(desktop) {
+        width: 50%;
+        height: 430px;
+    }
+    img {
+        object-fit: cover;
+        width: 100%;
+    }
+}
+.slide__title {
+    @include font-size(22px, 30px);
+    font-weight: 300;
+    margin-bottom: 14px;
+    @include respond-to(tablet) {
+        color: white;
+        @include font-size(30px, 30px);
+    }
+}
+.loader__slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: $level8;
+    border-bottom: 4px solid $main;
+}
+.flex-disabled {
+    display: none !important;
+}

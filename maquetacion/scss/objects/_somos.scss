@@ -1,0 +1,303 @@
+/*------------------------------------*\
+$SOMOS
+\*------------------------------------*/
+.banner--page {
+    margin-bottom: 25px;
+    img {
+        width: 100%;
+    }
+}
+.wrap--somos {
+    ul {
+        li {
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 8px;
+                width: 5px;
+                height: 5px;
+                background: $secundario;
+                border-radius: 0;
+            }
+        }
+    }
+    .gallery--simple {
+        margin-top: 15px;
+    }
+    .sub-title {
+        width: 100%;
+    }
+    .block__content {
+        @include respond-to(tablet) {
+            margin-top: 0;
+        }
+        .content {
+            @include respond-to(tablet) {
+                padding-left: 0;
+                padding-right: 40px;
+            }
+        }
+    }
+    .block--flex {
+        .column {
+            &:first-of-type {
+                ul {
+                    margin-bottom: 25px;
+                }
+            }
+        }
+    }
+}
+.somos--icon {
+    &::after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        display: block;
+        background: url(../img/dotted-hor.svg);
+        margin: 20px 0;
+        @include respond-to(tablet) {
+            margin: 25px 0;
+        }
+    }
+    .sub-title {
+        width: 100%;
+        text-align: center;
+    }
+    .btn {
+        width: 220px;
+        margin: 20px auto 0;
+    }
+    p {
+        @include font-size(16px, 20px);
+    }
+}
+.somos--flex {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+.somos--icon__item {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-flow: column wrap;
+    text-align: center;
+    margin-bottom: 20px;
+    @include respond-to(tablet) {
+        width: 33.333%;
+    }
+    p {
+        @include font-size(16px, 20px);
+    }
+}
+.icon__item__media {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    background: $lightmain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.block--flex {
+    @include respond-to(tablet) {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: wrap row;
+    }
+    &::after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        display: block;
+        background: url(../img/dotted-hor.svg);
+        margin: 20px 0;
+        @include respond-to(tablet) {
+            margin: 25px 0;
+        }
+    }
+    .column {
+        @include respond-to(tablet) {
+            width: calc(50% - 20px);
+        }
+    }
+}
+.items--box {
+    margin-top: 20px;
+    @include respond-to(tablet) {
+        border-top: 2px solid rgba($gray, .5);
+        margin-top: 40px;
+    }
+}
+.items__item {
+    width: calc(100% + 20px);
+    @include font-size(16px, 21px);
+    font-weight: 300;
+    margin-left: -10px;
+    padding: 0 0 0 10px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    flex-flow:  row wrap;
+    @include respond-to(tablet) {
+        width: 50%;
+        margin-left: 0;
+        padding: 0 0 0 20px;
+    }
+    @include respond-to(desktop) {
+        width: 33.333%;
+    }
+    &:nth-of-type(2n) {
+        background: #f1f1f1;
+        @include respond-to(tablet) {
+            background-color: transparent;
+            border-left: 1px solid rgba($gray, .2);
+        }
+        @include respond-to(desktop) {
+            border-right: 1px solid rgba($gray, .2);
+        }
+    }
+}
+.items__sep {
+    @include respond-to(tablet) {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        flex-flow: row wrap;
+        &:nth-of-type(2n) {
+            background: #f1f1f1;
+        }
+    }
+}
+.gerencia__content, .comites__container {
+    margin-top: 20px;
+    @include respond-to(tablet) {
+        margin-top: 40px;
+    }
+}
+.gerencia__block {
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    @include respond-to(tablet) {
+        display: flex;
+        justify-content: flex-start;
+        flex-flow: row wrap;
+    }
+    @include respond-to(desktop) {
+        justify-content: space-between;
+    }
+    h2 {
+        width: 100%;
+        @include font-size(24px, 34px);
+        font-weight: 400;
+        border-bottom: 1px solid rgba($gray, .5);
+        padding: 0 10px;
+        margin-top: 25px;
+        padding-bottom: 5px;
+        @include respond-to(tablet) {
+            text-align: center;
+            @include font-size(28px, 34px);
+        }
+    }
+}
+.gerencia__item {
+    border-bottom: 1px solid rgba($main, .5);
+    padding: 10px;
+    @include respond-to(tablet) {
+        width: 33.333%;
+        border-bottom: 2px solid #f1f1f1;
+        margin-bottom: 50px;
+        padding-bottom: 20px;
+    }
+    @include respond-to(desktop) {
+        width: calc(25% - 30px);
+    }
+    h3 {
+        @include font-size(18px, 23px);
+        color: $main;
+        font-weight: 300;
+        margin-bottom: 10px;
+    }
+    p {
+        @include font-size(16px, 20px);
+        font-weight: 300;
+        margin-bottom: 6px;
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}
+.comites__container {
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.comites__item {
+    margin-bottom: 40px;
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+    h2 {
+        @include font-size(28px, 34px);
+        font-weight: 400;
+        color: $main;
+        margin-bottom: 15px;
+    }
+    p {
+        @include font-size(16px, 20px);
+        font-weight: 300;
+    }
+}
+.gerencia__first {
+    @include respond-to(desktop) {
+        justify-content: center;
+    }
+}
+.gerencia__container {
+    @include respond-to(tablet) {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row wrap;
+        width: 100%;
+        .gerencia__item {
+            width: 33.333%;
+            border-bottom: 0;
+            margin-bottom: 0px;
+            padding-bottom: 0;
+            p {
+                margin-bottom: 15px;
+            }
+        }
+        &:last-of-type {
+            justify-content: flex-start;
+//            .gerencia__item {
+//                margin-right: 30px;
+//            }
+        }
+    }
+    @include respond-to(desktop) {
+        flex-flow: column wrap;
+        justify-content: flex-start;
+        width: 260px;
+        margin-left: 120px;
+        .gerencia__item {
+            width: 100%;
+        }
+        &:last-of-type {
+            width: 520px;
+            display: flex;
+            justify-content: flex-start;
+            flex-flow: row wrap;
+            margin-left: 0;
+            .gerencia__item {
+                width: 50%;
+                margin-right: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,313 @@
+/*------------------------------------*\
+$INDEX
+\*------------------------------------*/
+.container--flex {
+    @include respond-to(desktop) {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row wrap;
+    }
+}
+.column {
+    @include respond-to(desktop) {
+        width: calc(50% - 10px);
+    }
+}
+.item__home--wide {
+    @include respond-to(tablet) {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row wrap;
+    }
+}
+.item--wide__media {
+    height: 186px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    @include respond-to(tablet) {
+        width: 280px;
+        margin-bottom: 0;
+    }
+    img {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+    }
+}
+.item--wide__text {
+    @include respond-to(tablet) {
+        width: calc(100% - 280px);
+        padding-left: 20px;
+        position: relative;
+    }
+    p {
+        @include font-size(16px, 20px);
+        font-weight: 300;
+        margin-bottom: 20px;
+    }
+    .btn {
+        @include respond-to(tablet) {
+            position: absolute;
+            left: 20px;
+            bottom: 0;
+        }
+    }
+}
+.item--wide__title {
+    @include font-size(21px, 28px);
+    margin: 20px 0 15px;
+    color: $main;
+    font-weight: 400;
+    @include respond-to(tablet) {
+        margin-top: 0;
+    }
+}
+.column--flex {
+    @include respond-to(tablet) {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row wrap;
+        align-content: flex-start;
+    }
+    @include respond-to(desktop) {
+        width: calc(50% - 10px);
+
+    }
+    h2 {
+        width: 100%;
+    }
+}
+.item__home--simple {
+    @include respond-to(tablet) {
+        width: calc(50% - 36px);
+        padding-bottom: 30px;
+    }
+    @include respond-to(desktop) {
+        padding-bottom: 10px;
+    }
+    &:first-of-type {
+        margin-bottom: 18px;
+        overflow: hidden;
+        position: relative;
+        @include respond-to(tablet) {
+            overflow: visible;
+        }
+        &::after {
+            content: '';
+            background: url(../img/dotted-hor.svg);
+            width: 100%;
+            height: 2px;
+            display: block;
+            margin: 10px 0;
+            @include respond-to(tablet) {
+                content: '';
+                background: url(../img/dotted.svg);
+                height: 100%;
+                width: 2px;
+                position: absolute;
+                right: -36px;
+                top: 0;
+            }
+        }
+    }
+}
+.item--simple__meta {
+    @include respond-to(tablet) {
+        display: flex;
+        justify-content: flex-start;
+        flex-flow: row wrap;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+}
+.item--simple__icon {
+    @include respond-to(tablet) {
+        margin-right: 5px;
+    }
+}
+.item--simple__date {
+    color: $secundario;
+    @include font-size(16px, 30px);
+    @include respond-to(tablet) {
+        @include font-size(16px, 16px);
+    }
+}
+.item--simple__title a {
+    @include font-size(20px, 26px);
+    color: $main;
+    font-weight: 300;
+}
+.item__pork {
+    position: relative;
+    height: 194px;
+    @include respond-to(desktop) {
+        height: 186px;
+    }
+}
+.item__pork__media {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+.item__pork__text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba($main, .6);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+        display: none;
+        @include respond-to(tablet) {
+            display: block;
+            margin: 0 15px;
+            width: 240px;
+            color: white;
+            font-weight: 300;
+            @include font-size(16px, 20px);
+        }
+    }
+    svg {
+        width: 191px;
+        height: 63px;
+        @include respond-to(tablet) {
+            margin-right: 30px;
+        }
+    }
+}
+.indicadores__home {
+    padding: 0 14px;
+    border: 2px solid $main;
+    @include respond-to(tablet) {
+        padding-bottom: 10px;
+    }
+    @include respond-to(desktop) {
+        padding-bottom: 0;
+    }
+}
+.item__indicador {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-flow: row wrap;
+    position: relative;
+    padding: 8px 0;
+    overflow: hidden;
+    @include respond-to(tablet) {
+        padding: 15px 0 0;
+    }
+    @include respond-to(desktop) {
+        padding: 5px 0;
+    }
+    &::after {
+        content: '';
+        background: url(../img/dotted-hor.svg);
+        width: 100%;
+        height: 2px;
+        display: block;
+        margin: 3px 0 0;
+    }
+    &:last-of-type {
+        &::after {
+            display: none;
+        }
+    }
+}
+.indicador__title {
+    width: 115px;
+    color: $gray;
+    @include font-size(18px, 18px);
+    font-weight: 600;
+    @include respond-to(tablet) {
+        margin-left: 10px;
+    }
+    span {
+        @include font-size(14px, 20px);
+        font-weight: 300;
+        display: block;
+        @include respond-to(desktop) {
+            display: inline-block;
+        }
+    }
+}
+.indicador__valor {
+    width: 100px;
+    @include font-size(18px, 18px);
+    font-weight: 600;
+    color: $main;
+    display: block;
+    @include respond-to(tablet) {
+        margin-right: 10px;
+        width: 110px;
+    }
+    span {
+        color: $gray;
+        @include font-size(14px, 20px);
+        font-weight: 300;
+    }
+}
+.item__informe {
+    background: $secundario;
+    padding: 30px 25px;
+    @include respond-to(desktop) {
+        padding: 19px 25px;
+        height: 192px;
+    }
+    .btn {
+        margin: auto;
+    }
+}
+.item__informe__meta {
+    display: none;
+    @include respond-to(tablet) {
+        display: flex;
+        justify-content: center;
+        flex-flow: row wrap;
+        text-align: center;
+        text-transform: uppercase;
+        color: white;
+        @include font-size(14px, 24px);
+    }
+    p {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+    }
+    svg {
+        margin: 0 3px;
+    }
+    span {
+        width: 180px;
+        height: 2px;
+        background: rgba(white, .6);
+        display: block;
+        padding: 0;
+        margin: 10px 0;
+        &:nth-of-type(2) {
+            width: 80px;
+            background: rgba(white, .4);
+        }
+        &:nth-of-type(3) {
+            width: 80px;
+            background: rgba(white, .2);
+        }
+    }
+}
+.item__informe__title {
+    @include font-size(24px, 30px);
+    font-weight: 300;
+    margin-bottom: 15px;
+    text-align: center;
+    color: white;
+}

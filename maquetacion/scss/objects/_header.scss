@@ -1,0 +1,446 @@
+/*------------------------------------*\
+$HEADER
+\*------------------------------------*/
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: $level9;
+    background: white;
+    @include respond-to(desktop) {
+        &::after {
+            content: '';
+            width: 100%;
+            height: 4px;
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            background: rgba(0,0,0,0.1);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
+        }
+    }
+}
+.header__wrap {
+    position: relative;
+    max-width: cr(1200px);
+    margin: auto;
+    @include respond-to(desktop) {
+        padding: 0 10px;
+    }
+}
+.header--fixed {
+    .header--top {
+        height: 40px;
+        @include respond-to(tablet) {
+            height: 50px;
+        }
+    }
+    .header__logo {
+        width: 120px;
+        @include respond-to(tablet) {
+            width: 150px;
+            height: 26px;
+        }
+    }
+    .header--bottom {
+        padding-top: 40px;
+    }
+}
+.buscador--open {
+    .header__buscador {
+        width: calc(100% - 40px);
+        z-index: $level8;
+        @include respond-to(desktop) {
+            width: 250px;
+        }
+        .input-group {
+            width: 100%;
+            display: block;
+            input {
+                width: 100%;
+                height: 100%;
+                border: 1px solid $lightgray;
+                border-radius: 16px;
+                padding: 0 38px;
+            }
+        }
+        .send-group {
+            position: absolute;
+            right: 3px;
+            top: 0;
+            input {
+                display: block;
+                z-index: $level2;
+                border: 0;
+                background-color: transparent;
+            }
+            svg {
+                z-index: $level1;
+            }
+        }
+    }
+    .buscador__close {
+        opacity: 1;
+    }
+}
+.header--top {
+    position: relative;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row wrap;
+    padding: 0 20px;
+    transition: all $time;
+    background: white;
+    @include less-than(desktop) {
+        z-index: $level7;
+    }
+    @include respond-to(tablet) {
+        height: 90px;
+        padding: 0 40px;
+    }
+    @include respond-to(desktop) {
+        padding: 0;
+    }
+    &::after {
+        content: '';
+        width: 100%;
+        height: 4px;
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        background: rgba(0,0,0,0.1);
+        background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
+        @include respond-to(desktop) {
+            display: none;
+        }
+    }
+}
+.header__icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: column wrap;
+    width: 20px;
+    height: 17px;
+    @include respond-to(desktop) {
+        display: none;
+    }
+    span {
+        width: 100%;
+        height: 3px;
+        border-radius: 1.5px;
+        background: $main;
+    }
+}
+.header__logo {
+    width: 150px;
+    height: 26px;
+    transition: height $time, width $time;
+    @include respond-to(tablet) {
+        width: 228px;
+        height: 40px;
+    }
+    img {
+        width: 150px;
+        height: 26px;
+        transition: all $time;
+        @include respond-to(tablet) {
+            width: 228px;
+            height: 40px;
+        }
+    }
+}
+.header__buscador {
+    height: 38px;
+    width: 38px;
+    position: relative;
+    transition: all $time;
+    max-width: 250px;
+    .input-group {
+        width: 0;
+        height: 38px;
+        display: none;
+        margin: 0;
+        transition: all $time;
+        input {
+            width: 100%;
+            transition: all $time;
+        }
+    }
+    .send-group {
+        width: 38px;
+        height: 38px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+        z-index: $level2;
+        transition: all $time;
+        cursor: pointer;
+        margin: 0 0 0 auto;
+        input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: $level1;
+            display: none;
+        }
+        svg {
+            width: 24px;
+            height: 24px;
+            fill: $main;
+            position: relative;
+            z-index: $level2;
+        }
+    }
+}
+.form-buscar {
+    height: 38px;
+}
+.buscador__close {
+    width: 38px;
+    height: 38px;
+    z-index: $level2;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    z-index: $level1;
+    transition: all $time;
+    svg {
+        stroke: $gray;
+        width: 14px;
+        height: 14px;
+    }
+}
+.header--bottom {
+    width: 100%;
+    height: 100vh;
+    padding-top: 60px;
+    background: $main;
+    display: none;
+    overflow-y: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    @include less-than(desktop) {
+        z-index: $level6;
+    }
+    @include respond-to(tablet) {
+        padding-top: 90px;
+        .ipad & {
+            height: calc(100vh - 55px);
+        }
+    }
+    @include respond-to(desktop) {
+        display: block;
+        height: 90px;
+        background-color: white;
+        width: calc(100% - 340px);
+        position: absolute;
+        top: 0;
+        left: 240px;
+        padding-top: 0;
+    }
+}
+.header__container {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+    align-content: space-between;
+    @include respond-to(desktop) {
+        justify-content: flex-end;
+    }
+}
+.menu {
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+    width: 100%;
+    padding: 0 20px;
+    @include respond-to(tablet) {
+        margin-top: 60px;
+    }
+    @include respond-to(desktop) {
+        padding: 0;
+        width: 600px;
+        flex-flow: row wrap;
+        margin: 0;
+        align-items: center;
+        height: 100%;
+        justify-content: flex-end;
+        margin-right: 15px;
+    }
+}
+.menu-item {
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-weight: 300;
+    @include font-size(24px, 30px);
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(white, .2);
+    transition: all $time;
+    @include respond-to(tablet) {
+        @include font-size(40px, 44px);
+    }
+    @include respond-to(desktop) {
+        width: auto;
+        padding: 0;
+        border-bottom: 0;
+        @include font-size(18px, 21px);
+        color: $gray;
+        margin-left: 22px;
+    }
+    &:last-child {
+        border-bottom: 0;
+    }
+    .no-touch & {
+        &:hover {
+            color: $main;
+        }
+    }
+    &.current-menu-item, &.current-page-ancestor {
+        @include respond-to(desktop) {
+            position: relative;
+            &::after {
+                content: '';
+                width: 100%;
+                height: 2px;
+                background-color: $main;
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+            }
+        }
+    }
+}
+.submenu {
+    width: 100%;
+    background: $darkmain;
+    padding: 0 20px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row wrap;
+    @include respond-to(desktop) {
+        width: 155px;
+        height: 90px;
+        background-color: transparent;
+        flex-flow: row-reverse wrap;
+        padding: 0;
+    }
+}
+.header__lang {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: row wrap;
+    width: 90px;
+    @include respond-to(desktop) {
+        background: $lightmain;
+        flex-flow: column wrap;
+        height: 90px;
+        width: 66px;
+        align-items: center;
+        justify-content: center;
+    }
+    a {
+        width: 35px;
+        height: 28px;
+        color: white;
+        @include font-size(16px, 28px);
+        font-weight: 300;
+        display: block;
+        text-align: center;
+        margin-right: 10px;
+        transition: all $time;
+        @include respond-to(desktop) {
+            color: $gray;
+            margin: 3px 0;
+        }
+        .no-touch  & {
+            &:hover {
+                color: $main;
+            }
+        }
+        &.active {
+            border: 1px solid white;
+            @include respond-to(desktop) {
+                border: 1px solid rgba($main, .2);
+                color: $main;
+            }
+        }
+    }
+}
+.header__contact {
+    width: 24px;
+    height: 15px;
+    display: block;
+    transition: $transition-time $transition-method;
+    opacity: 1;
+    &.share-is-open {
+        opacity: 0;
+    }
+    .no-touch  & {
+        &:hover {
+            svg {
+                strokef: $main
+            }
+        }
+    }
+    svg {
+        width: 24px;
+        height: 15px;
+        stroke: white;
+        display: block;
+        transition: all $time;
+        @include respond-to(desktop) {
+            stroke: $gray;
+        }
+    }
+}
+.header__share {
+    background: 0;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    width: 24px;
+    height: 25px;
+    margin-right: 10px;
+    display: none;
+    @include respond-to(desktop) {
+        display: block;
+    }
+    &:active, &:focus {
+        outline: 0;
+    }
+    svg {
+        width: 24px;
+        height: 25px;
+        display: block;
+    }
+}
+.header__share--alone {
+    width: 16px;
+    height: 8px;
+    svg {
+        width: 16px;
+        height: 8px;
+    }
+}

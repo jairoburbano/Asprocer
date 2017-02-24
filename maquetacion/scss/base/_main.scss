@@ -1,0 +1,313 @@
+/*------------------------------------*\
+$MAIN
+\*------------------------------------*/
+html, body {
+    height: 100%;
+    min-height: 100%;
+    font-family: 'Ek Mukta', sans-serif;
+}
+body {
+    padding-top: 60px;
+    @include respond-to(tablet) {
+        padding-top: 90px;
+    }
+}
+.footer-small {
+    @include sticky(400px, page-wrap, footer);
+    @include respond-to(tablet) {
+        @include sticky(165px, page-wrap, footer);
+    }
+}
+.ocultar_newsletter {
+    @include sticky(400px, page-wrap, footer);
+    @include respond-to(tablet) {
+        @include sticky(290px, page-wrap, footer);
+    }
+}
+@include sticky(366px, page-wrap, footer);
+@include respond-to(tablet) {
+    @include sticky(232px, page-wrap, footer);
+}
+@include respond-to(desktop) {
+    @include sticky(310px, page-wrap, footer);
+}
+.title__principal {
+    color: $main;
+    margin: 40px 0 10px;
+    font-weight: 300;
+}
+.sub-title, .wrap--somos h2 {
+    @include font-size(24px, 30px);
+    font-weight: 300;
+    color: $main;
+    margin-bottom: 25px;
+}
+h1 {
+    @include font-size(30px, 34px);
+    font-weight: 300;
+    @include respond-to(tablet) {
+        @include font-size(40px, 44px);
+        color: $main;
+    }
+}
+h2 {
+    @include font-size(24px, 24px);
+    @include respond-to(tablet) {
+        @include font-size(28px, 34px);
+        color: $main;
+    }
+}
+h3 {
+    @include font-size(20px, 20px);
+    @include respond-to(tablet) {
+        @include font-size(20px, 24px);
+        color: $main;
+    }
+}
+h4 {
+    @include font-size(21px, 21px);
+    @include respond-to(tablet) {
+        @include font-size(18px, 21px);
+        color: $darkgray;
+    }
+}
+h5 {
+    @include font-size(18px, 24px);
+    font-weight: 600;
+}
+h6 {
+    @include font-size(18px, 20px);
+    color: $gray;
+}
+.content {
+    p {
+        @include font-size(14px, 18px);
+        font-weight: 300;
+        margin-bottom: 15px;
+        @include respond-to(tablet) {
+            @include font-size(16px, 20px);
+        }
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+    ul, ol {
+        @include font-size(14px, 18px);
+        list-style: none;
+        padding: 0 0 20px 0;
+        @include respond-to(tablet) {
+            @include font-size(16px, 18px);
+            padding: 0 0 30px 0;
+        }
+        &:last-child {
+            padding-bottom: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            display: block;
+        }
+        ul, ol {
+            padding-left: 10px;
+        }
+    }
+    ul {
+        > li {
+            position: relative;
+            padding-left: 15px;
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 8px;
+                width: 5px;
+                height: 5px;
+                background: $main;
+                border-radius: 50%;
+            }
+        }
+    }
+    ol {
+        counter-reset: section;
+        > li {
+            position: relative;
+            padding-left: 15px;
+            &::before {
+                position: absolute;
+                left: 0;
+                top: 0px;
+                counter-increment: section;
+                content: counters(section, ".") ".";
+                margin-right: 5px;
+                color: $main;
+            } 
+            ol li {
+                padding-left: 25px;
+            }
+        }
+    }
+    strong {
+        color: $main;
+        font-weight: 600;
+    }
+    b {
+        color: $main;
+        font-weight: 400;
+    }
+    a {
+        @include font-size(16px, 20px);
+        font-weight: 300;
+        color: $principal;
+        text-decoration: underline;
+        margin-bottom: 10px;
+        display: inline-block;
+        word-break: break-all;
+        transition: all $time;
+        .no-touch & {
+            &:hover {
+                color: $main;
+            }
+        }
+    }
+}
+img {
+    max-width: 100%;
+}
+.no-alert {
+    .alert {
+        display: none !important;
+    }
+}
+.android {
+    .alert--android {
+        display: flex;
+    }
+}
+.iphone {
+    .alert--iphone {
+        display: flex;
+    }
+}
+.ipad {
+    .alert--iphone {
+        display: flex;
+        bottom: auto;
+        top: 10px;
+        left: auto;
+        right: 20px;
+        transform: translate(0, 0);
+        &::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 5px 8px 5px;
+            border-color: transparent transparent #f2f2f2 transparent;
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translate(20px, 0);
+        }
+        .alert__close {
+            top: 10px;
+            left: 10px;
+        }
+    }
+}
+.alert {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: $level10;
+    background: #000;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    padding: 30px 30px 20px;
+    p {
+        color: $gray;
+        @include font-size(14px, 16px);
+        font-weight: 300;
+        span {
+            margin: 0 6px;
+        }
+    }
+    .alert__close {
+        width: 12px;
+        height: 12px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        border-radius: 50%;
+        z-index: $level2;
+        svg {
+            width: 12px;
+            height: 12px;
+            stroke: $main;
+            stroke-width: 2px;
+        }
+    }
+}
+.alert--android {
+    width: 300px;
+    border-radius: 3px;
+    background: #f2f2f2;
+    height: auto;
+    right: 10px;
+    left: auto;
+    top: 14px;
+    box-shadow: 0px 0px 50px rgba($darkgray, .5);
+    &::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 5px 8px 5px;
+        border-color: transparent transparent #f2f2f2 transparent;
+        position: absolute;
+        top: -8px;
+        right: 8px;
+    }
+    .alert__close {
+        top: 10px;
+        left: 10px;
+    }
+}
+.alert--iphone {
+    width: 300px;
+    border-radius: 3px;
+    background: #f2f2f2;
+    height: auto;
+    left: 50%;
+    top: auto;
+    bottom: 20px;
+    transform: translate(-50%, 0);
+    box-shadow: 0px 0px 50px rgba($darkgray, .5);
+    &::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 8px 5px 0 5px;
+        border-color: #f2f2f2 transparent transparent transparent;
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+    .alert__close {
+        top: 10px;
+        right: 10px;
+    }
+}
+.chrome {
+    .alert--iphone {
+        display: none !important;
+    }
+}
+.text-center {
+    text-align: center;
+}

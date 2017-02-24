@@ -1,0 +1,390 @@
+/*------------------------------------*\
+$INDUSTRIA
+\*------------------------------------*/
+.menu--interior {
+    width: 100%;
+    background: $main;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    transition: all $time;
+    @include respond-to(tablet) {
+        top: 90px;
+    }
+    @include respond-to(desktop) {
+        position: relative;
+        top: auto;
+        left: auto;
+    }
+    &.menu--fixed {
+        top: 40px;
+        z-index: $level5;
+        @include respond-to(desktop) {
+            top: auto;
+        }
+    }
+}
+.menu__nav {
+    display: none;
+    @include respond-to(tablet) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        @include respond-to(tablet) {
+            height: 70px;
+        }
+    }
+    &.menu--asociacion {
+        justify-content: space-between;
+        @include respond-to(tablet) {
+            padding: 0 40px;
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+        }
+        a {
+            width: auto;
+        }
+    }
+    a {
+        width: 25%;
+        @include font-size(18px, 24px);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        opacity: .5;
+        height: 36px;
+        transition: all $time;
+        @include respond-to(tablet) {
+            @include font-size(20px, 24px);
+        }
+        img, svg {
+            max-height: 30px;
+            max-width: 30px;
+            margin-right: 10px;
+            @include respond-to(tablet) {
+                max-height: 36px;
+                max-width: 36px;
+            }
+        }
+        &.active {
+            opacity: 1;
+            &::after {
+                content: '';
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 10px 11.5px 0 11.5px;
+                border-color: $main transparent transparent transparent;
+                position: absolute;
+                bottom: -20px;
+                left: 50%;
+                transform: translate(-50%, 0);
+                @include respond-to(tablet) {
+                    bottom: -26px;
+                }
+            }
+        }
+        .no-touch & {
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+.menu__nav__mobile {
+    position: relative;
+    height: 40px;
+    @include respond-to(tablet) {
+        display: none;
+    }
+    .menu__nav__mobile__icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 60px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        svg {
+            max-width: 30px;
+            max-height: 30px;
+        }
+    }
+    select {
+        appearance: none;
+        width: 100%;
+        height: 40px;
+        padding: 0 40px 0 60px;
+        color: white;
+        background-color: transparent;
+        border-radius: 0;
+        @include font-size(20px, 24px);
+        font-weight: 300;
+        position: relative;
+        z-index: $level2;
+        border: 0;
+    }
+    .icon-select {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: $level1;
+        svg {
+            width: 20px;
+            height: 10px;
+        }
+    }
+}
+.block__content {
+    margin: 25px 0 0;
+    position: relative;
+    @include respond-to(tablet) {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row wrap;
+        margin-top: 45px;
+    }
+    &:last-of-type {
+        &::after {
+            display: none;    
+        }
+    }
+    &::after {
+        content: '';
+        background: url(../img/dotted-hor.svg);
+        width: 100%;
+        height: 2px;
+        display: block;
+        margin-top: 20px;
+        @include respond-to(tablet) {
+            margin-top: 40px;
+        }
+    }
+    .content {
+        @include respond-to(tablet) {
+            width: calc(100% - 280px);
+            padding-left: 40px;
+            margin-top: 30px;
+        }
+        @include respond-to(desktop) {
+            width: calc(100% - 570px);
+            padding-left: 80px;
+        }
+        p {
+            @include font-size(18px, 24px);
+            font-weight: 300;
+        }
+    }
+}
+.block--reverse {
+    @include respond-to(tablet) {
+        flex-flow: row-reverse wrap;
+        .content {
+            padding-left: 0;
+            padding-right: 40px;
+
+        }
+    }
+    @include respond-to(desktop) {
+        .content {
+            padding-right: 80px;
+        }
+    }
+}
+.gallery--simple {
+    overflow: hidden;
+    @include respond-to(tablet) {
+        width: 280px;
+    }
+    @include respond-to(desktop) {
+        width: 570px;
+        padding: 0 35px;
+        position: relative;
+    }
+    li {
+        &::before {
+            display: none;
+        }
+    }
+    .flex-control-nav {
+        position: relative;
+        left: auto;
+        top: auto;
+        background-color: transparent;
+        height: 40px;
+        @include respond-to(desktop) {
+            display: none;
+        }
+        li {
+            margin: 0 5px;
+            a {
+                display: block;
+                text-indent: 999em;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: $lightmain;
+                transition: all $time;
+                @include respond-to(tablet) {
+                    width: 12px;
+                    height: 12px;
+                }
+                &.flex-active {
+                    width: 12px;
+                    height: 12px;
+                    background: $main;
+                    @include respond-to(tablet) {
+                        width: 17px;
+                        height: 17px;
+                    }
+                }
+            }
+        }
+    }
+    .flex-direction-nav {
+        display: none;
+        @include respond-to(desktop) {
+            display: block;
+        }
+    }
+    .flex-prev, .flex-next {
+        width: 14px;
+        height: 26px;
+        fill: $main;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        left: 0;
+        opacity: .5;
+        transition: all $time;
+        .no-touch & {
+            &:hover {
+                opacity: 1;
+            }
+        }
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .flex-next {
+        left: auto;
+        right: 0;
+    }
+}
+.image--simple {
+    margin-bottom: 15px;
+    @include respond-to(tablet) {
+        width: 280px;
+        margin-bottom: 0;
+    }
+    @include respond-to(desktop) {
+        width: 570px;
+        max-height: 480px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        img {
+            object-fit: contain;
+            object-position: top;
+        }
+    }
+}
+.small--block {
+    max-width: 820px;
+    width: 100%;
+    margin: auto;
+    padding-top: 20px;
+    @include respond-to(tablet) {
+        padding-top: 40px;
+    }
+    h2 {
+        @include font-size(24px, 24px);
+        color: $main;
+        font-weight: 400;
+        margin-bottom: 15px;
+        @include respond-to(tablet) {
+            @include font-size(28px, 34px);
+            margin-bottom: 30px;
+        }
+    }
+}
+.lightbox--full {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(white, .9);
+    display: none;
+    z-index: $level9;
+}
+.lightbox__close {
+    width: 40px;
+    height: 40px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $main;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    svg {
+        width: 20px;
+        height: 20px;
+        fill: $main;
+    }
+}
+.lightbox__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+}
+.js-full {
+    @include respond-to(desktop) {
+        position: relative;
+        cursor: pointer;
+        &::after {
+            content: '';
+            background: url(../img/lupa.svg) center center no-repeat;
+            opacity: 0;
+            transition: all 300ms;
+            width: 25px;
+            height: 25px;
+            @include center;
+            z-index: 2;
+        }
+        &::before {
+            content: '';
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba($main, .2);
+            opacity: 0;
+            transition: all 300ms;
+        }
+        &:hover {
+            &::after, &::before {
+                opacity: 1;
+            }
+        }
+    }
+}

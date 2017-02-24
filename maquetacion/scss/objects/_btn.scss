@@ -1,0 +1,65 @@
+/*------------------------------------*\
+$BTN
+\*------------------------------------*/
+.btn--border, .btn--download {
+    @include font-size(12px, 28px);
+    font-weight: 600;
+    color: $main;
+    border: 2px solid $main;
+    width: 130px;
+    height: 32px;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all $time;
+    .no-touch & {
+        &:hover {
+            background: #e8f2fc;
+        }
+    }
+    &.disable {
+        opacity: .2;
+    }
+    &.btn--contrast {
+        border-color: white;
+        color: white;
+        .no-touch & {
+            &:hover {
+                background: #fff;
+                color: $main;
+            }
+        }
+    }
+}
+.btn--download {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    align-items: center;
+    padding: 0 10px 0 15px;
+    svg {
+        width: 16px;
+        height: 14px;
+        fill: $main;
+    }
+}
+.btn--fill {
+    @include font-size(12px, 32px);
+    font-weight: 600;
+    color: white;
+    background: $secundario;
+    width: 130px;
+    height: 32px;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all $time;
+    .no-touch & {
+        &:hover {
+            background: rgba($secundario, .6);
+        }
+    }
+    &.disable {
+        opacity: .2;
+    }
+}
